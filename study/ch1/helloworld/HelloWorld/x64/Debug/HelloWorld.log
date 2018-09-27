@@ -1,0 +1,10 @@
+﻿  Moc'ing HelloWorld.h...
+  Rcc'ing HelloWorld.qrc...
+  Uic'ing HelloWorld.ui...
+  RCC: Warning: No resources in 'E:\private_workspace\qt_workspace\study\ch1\HelloWorld\HelloWorld\HelloWorld.qrc'.
+  HelloWorld.cpp
+  main.cpp
+  moc_HelloWorld.cpp
+  qrc_HelloWorld.cpp
+  HelloWorld.vcxproj -> E:\private_workspace\qt_workspace\study\ch1\HelloWorld\x64\Debug\HelloWorld.exe
+  HelloWorld.vcxproj -> E:\private_workspace\qt_workspace\study\ch1\HelloWorld\x64\Debug\HelloWorld.pdb (Full PDB)

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>filefind.png</file>
+        <file>filenew.png</file>
+        <file>fileopen.png</file>
+        <file>fileprint.png</file>
+        <file>filequickprint.png</file>
+        <file>filesave.png</file>
+        <file>filesaveas.png</file>
+        <file>myimage.qrc</file>
+        <file>stock_file-properites.png</file>
+    </qresource>
+</RCC>
