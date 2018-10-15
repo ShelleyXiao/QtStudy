@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>filefind.png</file>
+        <file>filenew.png</file>
+        <file>fileopen.png</file>
+        <file>fileprint.png</file>
+        <file>filequickprint.png</file>
+        <file>filesave.png</file>
+        <file>filesaveas.png</file>
+        <file>stock_file-properites.png</file>
+        <file>editclear.png</file>
+        <file>edit-clear.png</file>
+        <file>editcopy.png</file>
+        <file>edit-copy.png</file>
+        <file>editcut.png</file>
+        <file>edit-cut.png</file>
+        <file>editdelete.png</file>
+        <file>edit-delete.png</file>
+        <file>edit-find.png</file>
+        <file>edit-find-replace.png</file>
+        <file>editpaste.png</file>
+        <file>edit-paste.png</file>
+        <file>edit-redo.png</file>
+        <file>edit-select-all.png</file>
+        <file>edit-undo.png</file>
+        <file>gtk-edit.png</file>
+        <file>window-close.png</file>
+        <file>exit.png</file>
+        <file>help.png</file>
+    </qresource>
+</RCC>

@@ -13,11 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -39,6 +41,8 @@ public:
     QAction *action_Find;
     QAction *action_Help;
     QWidget *centralWidget;
+    QGridLayout *gridLayout;
+    QTextEdit *textEdit;
     QMenuBar *menuBar;
     QMenu *menu_F;
     QMenu *menu_E;
@@ -50,7 +54,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(423, 313);
         action_New = new QAction(MainWindow);
         action_New->setObjectName(QStringLiteral("action_New"));
         QIcon icon;
@@ -113,10 +117,19 @@ public:
         action_Help->setIcon(icon11);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        gridLayout = new QGridLayout(centralWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        textEdit = new QTextEdit(centralWidget);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+
+        gridLayout->addWidget(textEdit, 0, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 23));
+        menuBar->setGeometry(QRect(0, 0, 423, 23));
         menu_F = new QMenu(menuBar);
         menu_F->setObjectName(QStringLiteral("menu_F"));
         menu_E = new QMenu(menuBar);
@@ -150,6 +163,14 @@ public:
         menu_E->addSeparator();
         menu_E->addAction(action_Find);
         menu_H->addAction(action_Help);
+        mainToolBar->addAction(action_New);
+        mainToolBar->addAction(action_Open);
+        mainToolBar->addAction(action_Save);
+        mainToolBar->addSeparator();
+        mainToolBar->addAction(action_Undo);
+        mainToolBar->addAction(action_Cut);
+        mainToolBar->addAction(action_Copy);
+        mainToolBar->addAction(action_Find);
 
         retranslateUi(MainWindow);
 
@@ -162,6 +183,9 @@ public:
         action_New->setText(QApplication::translate("MainWindow", "\346\226\260\345\273\272(N)", Q_NULLPTR));
         action_New->setShortcut(QApplication::translate("MainWindow", "Ctrl+N", Q_NULLPTR));
         action_Open->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200(&O) ", Q_NULLPTR));
+#ifndef QT_NO_STATUSTIP
+        action_Open->setStatusTip(QApplication::translate("MainWindow", "\346\211\223\345\274\200\346\226\207\344\273\266", Q_NULLPTR));
+#endif // QT_NO_STATUSTIP
         action_Open->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", Q_NULLPTR));
         action_Close->setText(QApplication::translate("MainWindow", "\345\205\263\351\227\255(&C)", Q_NULLPTR));
         action_Close->setShortcut(QApplication::translate("MainWindow", "Ctrl+W", Q_NULLPTR));
