@@ -1,0 +1,14 @@
+INPUT(
+./debug/main.o
+./debug/mainwindow.o
+./debug/diagramitem.o
+./debug/arrow.o
+./debug/diagramtextitem.o
+./debug/diagramscene.o
+./debug/qrc_images.o
+./debug/moc_mainwindow.o
+./debug/moc_diagramitem.o
+./debug/moc_arrow.o
+./debug/moc_diagramtextitem.o
+./debug/moc_diagramscene.o
+);
