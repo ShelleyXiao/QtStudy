@@ -1,9 +1,11 @@
-﻿#include "mainwindow.h"
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 #include "mid_child.h"
 #include <QMdiSubWindow>
 #include <QFileDialog>
+#include <QCloseEvent>
+#include <QSettings>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,11 +18,29 @@ MainWindow::MainWindow(QWidget *parent) :
     updateMenus();
     connect(ui->mdiArea, SIGNAL(subWindowActivated(QMdiSubWindow*)),
             this, SLOT(updateMenus()));
+
+    windowMapper = new QSignalMapper(this);
+    connect(windowMapper, SIGNAL(mapped(QWidget*)), this, SLOT(setActiveSubWindow(QWidget*)));
+    updateWindowMenu();
+    connect(ui->menu_W, SIGNAL(aboutToShow()), this, SLOT(updateWindowMenu()));
+
+    readSettings();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    ui->mdiArea->closeAllSubWindows();
+    if(ui->mdiArea->currentSubWindow()) {
+        event->ignore();
+    } else {
+        writeSettings();
+        event->accept();
+    }
 }
 
 void MainWindow::on_actionNew_triggered()
@@ -98,6 +118,32 @@ QMdiSubWindow *MainWindow::findMdiChild(const QString &fileName)
     return 0;
 }
 
+void MainWindow::readSettings()
+{
+    QSettings settints("file", "myMdi");
+    QPoint pos = settints.value("pos", QPoint(200, 200)).toPoint();
+    QSize size = settints.value("size", QSize(400, 400)).toSize();
+    move(pos);
+    resize(size);
+}
+
+void MainWindow::writeSettings()
+{
+    QSettings settints("file", "myMdi");
+    settints.setValue("pos", pos());
+    settints.setValue("size", size());
+}
+
+void MainWindow::initWindow()
+{
+    setWindowTitle(tr(""));
+    ui->mainToolBar->setWindowTitle(tr(""));
+    ui->mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    ui->mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
+
+}
+
 void MainWindow::on_actionOpen_triggered()
 {
     QString fileName = QFileDialog::getOpenFileName(this);
@@ -115,5 +161,79 @@ void MainWindow::on_actionOpen_triggered()
         } else {
             child->close();
         }
+    }
+}
+
+void MainWindow::updateWindowMenu()
+{
+    ui->menu_W->clear();
+    ui->menu_W->addAction(ui->actionClose);
+    ui->menu_W->addAction(ui->actionCloseAll);
+    ui->menu_W->addSeparator();
+    ui->menu_W->addAction(ui->actionTile);
+    ui->menu_W->addAction(ui->actionCascade);
+    ui->menu_W->addSeparator();
+    ui->menu_W->addAction(ui->actionNext);
+    ui->menu_W->addAction(ui->actionPrevious);
+    ui->menu_W->addSeparator();
+
+    QList<QMdiSubWindow *> windows = ui->mdiArea->subWindowList();
+    actionSeperator->setVisible(! windows.isEmpty());
+
+    for(int i = 0; i < windows.size(); i++) {
+        MidChild *child = qobject_cast<MidChild *>(windows.at(i)->widget());
+        QString text;
+        if(i < 9) {
+            text = tr("&%1 %2")
+                    .arg(i + 1)
+                    .arg(child->userFirendlyCurrentFile());
+        } else {
+            text = tr("%1 %2")
+                    .arg(i + 1)
+                    .arg(child->userFirendlyCurrentFile());
+        }
+
+        QAction *action = ui->menu_W->addAction(text);
+        action->setCheckable(true);
+        action->setChecked(child == activeMdiChild());
+        connect(action, SIGNAL(triggered(bool)), windowMapper, SLOT(map()));
+        windowMapper->setMapping(action, windows.at(i));
+    }
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+    if(activeMdiChild() && activeMdiChild()->save()) {
+        ui->statusBar->showMessage(tr("文件保存成功"), 2000);
+    }
+}
+
+void MainWindow::on_actionUndo_triggered()
+{
+    if(activeMdiChild()) {
+        activeMdiChild()->undo();
+    }
+}
+
+void MainWindow::on_actionClose_triggered()
+{
+    ui->mdiArea->closeActiveSubWindow();;
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    qApp->closeAllWindows();
+}
+
+void MainWindow::showTextRowAndCol()
+{
+    if(activeMdiChild()) {
+        int rowNum = activeMdiChild()->textCursor()
+                .blockNumber() + 1;
+        int colNum = activeMdiChild()->textCursor()
+                .columnNumber() + 1;
+        ui->statusBar->showMessage(tr("%1%2")
+                                   .arg(rowNum)
+                                   .arg(colNum));
     }
 }
