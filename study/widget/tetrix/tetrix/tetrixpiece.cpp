@@ -1,4 +1,4 @@
-#include "tetrixpiece.h"
+﻿#include "tetrixpiece.h"
 #include <stdlib.h>
 
 #include <QtCore>
@@ -90,7 +90,7 @@ TetrixPiece TetrixPiece::rotateRight() const
     TetrixPiece result;
     result.pieceShape = pieceShape;
     for(int i = 0; i < 4; i++) {
-        result.setX(i, y-(i));
+        result.setX(i, y(i));
         result.setY(i, x(i));
     }
 

@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -14,6 +14,8 @@ class QPushButton;
 
 QT_END_NAMESPACE
 
+class TetrixBoard;
+
 class MainWindow : public QWidget
 {
     Q_OBJECT
@@ -23,6 +25,8 @@ public:
 
 private:
     QLabel *createLabel(const QString &text);
+
+    TetrixBoard *board;
 
     QLabel *nextPieceLabel;
     QLCDNumber *scoreLcd;

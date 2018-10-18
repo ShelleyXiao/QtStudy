@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-10-17T16:58:46
+# Project created by QtCreator 2018-10-18T15:45:20
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = tetrix
+TARGET = comparepolicies
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,10 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    tetrixpiece.cpp \
-    tetrixboard.cpp
+        widget.cpp
 
-HEADERS  += mainwindow.h \
-    tetrixpiece.h \
-    tetrixboard.h
+HEADERS  += widget.h
+
+FORMS    += widget.ui

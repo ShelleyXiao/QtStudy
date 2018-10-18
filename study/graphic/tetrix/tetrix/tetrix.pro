@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-10-17T16:58:46
+# Project created by QtCreator 2018-10-18T14:40:20
 #
 #-------------------------------------------------
 
@@ -24,10 +24,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    tetrixpiece.cpp \
-    tetrixboard.cpp
+        mainwindow.cpp
 
-HEADERS  += mainwindow.h \
-    tetrixpiece.h \
-    tetrixboard.h
+HEADERS  += mainwindow.h

@@ -1,4 +1,4 @@
-#ifndef TETRIXSHAPE_H
+﻿#ifndef TETRIXSHAPE_H
 #define TETRIXSHAPE_H
 
 
@@ -8,6 +8,8 @@ enum TetrixShape{
 };
 
 class TetrixPiece {
+
+public:
     TetrixPiece() {
         setShape(NoShape);
     }
@@ -44,7 +46,7 @@ private:
         coords[index][1] = y;
     }
 
-    TetrixPiece pieceShape;
+    TetrixShape pieceShape;
     int coords[4][2];
 };
 
