@@ -24,6 +24,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    onebox.cpp \
+    boxgroup.cpp \
+    myview.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    onebox.h \
+    boxgroup.h \
+    myview.h
+
+RESOURCES += \
+    images/images.qrc
