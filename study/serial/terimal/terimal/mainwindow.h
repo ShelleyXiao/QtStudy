@@ -2,10 +2,18 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtCore/QtGlobal>
+#include <QtSerialPort/QSerialPort>
+
+class QLabel;
+
 
 namespace Ui {
 class MainWindow;
 }
+
+class Console;
+class SettingsDialog;
 
 class MainWindow : public QMainWindow
 {
@@ -16,18 +24,28 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_actionConnect_triggered();
+    void openSerialPort();
+    void closeSerialPort();
+    void about();
+    void writeData(const QByteArray &data);
+    void readData();
 
-    void on_actionDisconnect_triggered();
+    void handleError(QSerialPort::SerialPortError error);
 
-    void on_actionQuit_triggered();
-
-    void on_actionConfigure_triggered();
-
-    void on_actionClear_triggered();
+private:
+     void initActionsConnections();
 
 private:
     Ui::MainWindow *ui;
+
+    void showStatusMessage(const QString &msg);
+
+    QLabel *status;
+    Console *console;
+    SettingsDialog *settings;
+    QSerialPort *serial;
+
+
 };
 
 #endif // MAINWINDOW_H

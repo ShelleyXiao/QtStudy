@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>TextInputItem.qml</file>
+        <file>TextInputItem2.qml</file>
+        <file>TLineEditV1.qml</file>
+        <file>TextInputItem3.qml</file>
+        <file>TLineEditV2.qml</file>
+        <file>TTextEdit.qml</file>
+        <file>TextEditV1.qml</file>
+    </qresource>
+</RCC>

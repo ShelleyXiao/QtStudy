@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/rock.png</file>
+        <file>images/videoplayer.jpg</file>
+    </qresource>
+</RCC>

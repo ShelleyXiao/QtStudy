@@ -196,6 +196,7 @@ Makefile: ../terimal/terimal.pro E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/
 		E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf \
@@ -223,6 +224,7 @@ Makefile: ../terimal/terimal.pro E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/
 		E:/qt/Qt5.8.0/5.8/mingw53_32/lib/qtmaind.prl \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Widgets.prl \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Gui.prl \
+		E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5SerialPort.prl \
 		E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ../terimal/terimal.pro -spec win32-g++ CONFIG+=debug CONFIG+=qml_debug
 E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -362,6 +364,7 @@ E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_functions.prf:
 E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf:
 E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf:
 E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf:
 E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf:
 E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf:
@@ -389,6 +392,7 @@ E:/qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/lex.prf:
 E:/qt/Qt5.8.0/5.8/mingw53_32/lib/qtmaind.prl:
 E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Widgets.prl:
 E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Gui.prl:
+E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5SerialPort.prl:
 E:/qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../terimal/terimal.pro -spec win32-g++ CONFIG+=debug CONFIG+=qml_debug

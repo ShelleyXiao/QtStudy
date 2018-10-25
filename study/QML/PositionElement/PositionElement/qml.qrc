@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>RedSquare.qml</file>
+        <file>BlueSquare.qml</file>
+        <file>DarkSquare.qml</file>
+        <file>GreenSquare.qml</file>
+        <file>LighterSquare.qml</file>
+        <file>Columns.qml</file>
+        <file>grid.qml</file>
+        <file>Grids.qml</file>
+        <file>Repeaters.qml</file>
+    </qresource>
+</RCC>

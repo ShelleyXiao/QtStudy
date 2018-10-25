@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>rectangle.qml</file>
+        <file>text.qml</file>
+        <file>image.qml</file>
+        <file>assert/test.jpg</file>
+    </qresource>
+</RCC>
