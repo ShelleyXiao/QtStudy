@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>asserts/air_hockey_surface.png</file>
+    </qresource>
+    <qresource prefix="/res">
+        <file>asserts/air_hockey_surface.png</file>
+    </qresource>
+</RCC>

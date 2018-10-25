@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>curves/InBack.png</file>
+        <file>curves/InBounce.png</file>
+        <file>curves/InCirc.png</file>
+        <file>curves/InCubic.png</file>
+        <file>curves/InElastic.png</file>
+        <file>curves/InOutQuad.png</file>
+        <file>curves/InQuad.png</file>
+        <file>curves/InSine.png</file>
+        <file>curves/Linear.png</file>
+        <file>curves/OutQuad.png</file>
+    </qresource>
+</RCC>
